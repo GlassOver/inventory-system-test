@@ -9,15 +9,17 @@ class_name InventorySlotUI extends Control
 @onready var usage_panel: ColorRect = $UsagePanel
 @onready var assign_button: Button = $UsagePanel/AssignButton
 
-var slot_data : SlotData : set = set_item
+var _slot_data: SlotData = null
+var slot_data: SlotData:
+	get:
+		return _slot_data
+	set(value):
+		set_item(value)
 
 #Slot item
 var item = null
 var slot_index = -1
 var is_assigned = false
-
-
-
 
 func _ready() -> void:
 	item_icon.texture = null
@@ -25,14 +27,14 @@ func _ready() -> void:
 
 
 func set_item(value : SlotData):
-	slot_data = value
-	if slot_data == null:
+	_slot_data = value
+	if _slot_data == null:
 		return
-	item_icon.texture = slot_data.item_data.texture
-	item_quantity.text = str(slot_data.quantity)
+	item_icon.texture = _slot_data.item_data.texture
+	item_quantity.text = str(_slot_data.quantity)
 	
-	item_name.text = str(slot_data.item_data.name)
-	item_type.text = str(slot_data.item_data.quality)
+	item_name.text = str(_slot_data.item_data.name)
+	item_type.text = str(_slot_data.item_data.quality)
 	
 	#if item["effect"] != "":
 		#item_effect.text = str("+ ", item["effect"])
@@ -42,20 +44,20 @@ func set_item(value : SlotData):
 	
 
 func _on_item_button_pressed() -> void:
+	print("Pressed item")
 	if slot_data != null:
 		usage_panel.visible = !usage_panel.visible
 
 
 func _on_item_button_mouse_entered() -> void:
+	print("Hovering item")
 	if slot_data != null:
 		usage_panel.visible = false
 		details_panel.visible = true
 
-
 func _on_item_button_mouse_exited() -> void:
+	print("Exiting hover")
 	details_panel.visible = false
-	
-
 
 #func _on_use_button_pressed() -> void:
 	#usage_panel.visible = false

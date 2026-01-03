@@ -13,6 +13,7 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 160.0
 offset_bottom = 160.0
+mouse_filter = 1
 script = ExtResource("1_0cu6i")
 
 [node name="OuterBorder" type="ColorRect" parent="."]
@@ -22,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.68085366, 0.92411417, 0.88914746, 1)
 
 [node name="InnerBorder" type="ColorRect" parent="."]
@@ -37,6 +39,7 @@ offset_right = 70.0
 offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.1466907, 0.5226555, 0.41273016, 1)
 
 [node name="ItemIcon" type="Sprite2D" parent="InnerBorder"]
@@ -55,6 +58,7 @@ theme_override_font_sizes/font_size = 40
 text = "1"
 
 [node name="ItemButton" type="Button" parent="."]
+z_index = 5
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,6 +73,7 @@ layout_mode = 0
 offset_top = -135.0
 offset_right = 240.0
 offset_bottom = -5.0
+mouse_filter = 2
 color = Color(0.68235296, 0.9254902, 0.8901961, 1)
 
 [node name="ItemName" type="Label" parent="DetailsPanel"]
@@ -113,6 +118,7 @@ layout_mode = 0
 offset_top = -205.0
 offset_right = 240.0
 offset_bottom = -5.0
+mouse_filter = 2
 color = Color(0.68235296, 0.9254902, 0.8901961, 1)
 
 [node name="UseButton" type="Button" parent="UsagePanel"]
