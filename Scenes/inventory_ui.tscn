@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpx1jijsab61l"]
+
+[ext_resource type="Script" uid="uid://i1p5rmwnolfw" path="res://Script/inventory_ui.gd" id="1_8su62"]
+[ext_resource type="Resource" uid="uid://de5u5a5sj8ern" path="res://Inventory Resources/player_inventory.tres" id="2_os1l6"]
+
+[node name="InventoryUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_8su62")
+data = ExtResource("2_os1l6")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 1000.0
+offset_bottom = 600.0
+columns = 9

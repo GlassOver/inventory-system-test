@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://f8bnm31xyw4t"]
+
+[ext_resource type="Script" uid="uid://dbks2wyfeu780" path="res://Script/main.gd" id="1_r150o"]
+[ext_resource type="PackedScene" uid="uid://bnwt0yn5th7vk" path="res://Scenes/Player.tscn" id="2_idj7w"]
+[ext_resource type="PackedScene" uid="uid://cnbblyn3flyuf" path="res://Scenes/InventoryItem.tscn" id="3_kln2b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idj7w"]
+size = Vector2(500, 500)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_r150o")
+
+[node name="Player" parent="." instance=ExtResource("2_idj7w")]
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="ItemSpawnArea" type="Area2D" parent="."]
+position = Vector2(269, 90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemSpawnArea"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_idj7w")
+debug_color = Color(0.39607844, 0.79607844, 0.3372549, 0.043137256)
+
+[node name="InventoryItem" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(-105, -35)
