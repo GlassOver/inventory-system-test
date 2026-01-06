@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://drlvudcv8w806"]
+
+[ext_resource type="Script" uid="uid://bkcin25c5i56i" path="res://Script/Item_Data_Resource.gd" id="1_ips38"]
+[ext_resource type="Texture2D" uid="uid://dpqhecjeoa82y" path="res://Assets/Player.png" id="2_5bkvx"]
+
+[resource]
+script = ExtResource("1_ips38")
+name = "Pouch"
+description = "Pouch Description"
+texture = ExtResource("2_5bkvx")
+quality = "Poor"
+metadata/_custom_type_script = "uid://bkcin25c5i56i"

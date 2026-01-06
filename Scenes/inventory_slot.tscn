@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpdkxjw467dip"]
+[gd_scene load_steps=3 format=3 uid="uid://dpdkxjw467dip"]
 
 [ext_resource type="Script" uid="uid://4gsaik43gou1" path="res://Script/inventory_slot.gd" id="1_0cu6i"]
-[ext_resource type="Texture2D" uid="uid://dpqhecjeoa82y" path="res://Assets/Player.png" id="2_pnayc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6h8ck"]
 
@@ -13,6 +12,7 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 160.0
 offset_bottom = 160.0
+mouse_filter = 1
 script = ExtResource("1_0cu6i")
 
 [node name="OuterBorder" type="ColorRect" parent="."]
@@ -22,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.68085366, 0.92411417, 0.88914746, 1)
 
 [node name="InnerBorder" type="ColorRect" parent="."]
@@ -37,12 +38,12 @@ offset_right = 70.0
 offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.1466907, 0.5226555, 0.41273016, 1)
 
 [node name="ItemIcon" type="Sprite2D" parent="InnerBorder"]
 position = Vector2(70, 70)
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("2_pnayc")
 
 [node name="ItemQuantity" type="Label" parent="InnerBorder"]
 layout_mode = 1
@@ -52,9 +53,9 @@ offset_right = 45.0
 offset_bottom = 50.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "1"
 
 [node name="ItemButton" type="Button" parent="."]
+z_index = 5
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -159,6 +160,21 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "Drop"
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ItemDesc" type="Label" parent="CanvasLayer2"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -466.0
+offset_top = -215.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 26
+autowrap_mode = 2
 
 [connection signal="mouse_entered" from="ItemButton" to="." method="_on_item_button_mouse_entered"]
 [connection signal="mouse_exited" from="ItemButton" to="." method="_on_item_button_mouse_exited"]

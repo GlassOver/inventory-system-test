@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw0ir6qytjo3h"]
+[gd_scene load_steps=3 format=3 uid="uid://dw0ir6qytjo3h"]
 
 [ext_resource type="Script" uid="uid://b58bouhqnu8u2" path="res://Script/inventory_hotbar.gd" id="1_riys7"]
+[ext_resource type="Resource" uid="uid://bvlgk6k7cl46g" path="res://Inventory Resources/hotbar_inventory.tres" id="2_cgiyr"]
 
 [node name="Inventory_Hotbar" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_riys7")
+data = ExtResource("2_cgiyr")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

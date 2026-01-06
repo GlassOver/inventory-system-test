@@ -1,73 +1,52 @@
 @tool
 extends Node2D
-#
-#@onready var icon_sprite = $Sprite2D
-#var scene_path: String = "res://Scenes/InventoryItem.tscn"
-#var player_detected = false
-#
-##region /// Item properties
-#@export var item_type = ""
-#@export var item_name = ""
-#@export var item_effect = ""
-#@export var effect_bonus = ""
-#@export var item_texture: Texture
-##endregion
+
+@onready var area_2d: Area2D = $Area2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+@export var item_data : ItemData : set = _set_item_data
 
 
 
-#func _ready() -> void:
-	#if not Engine.is_editor_hint():
-		#icon_sprite.texture = item_texture
+func _ready() -> void:
+	_update_texture()
+	
+	if Engine.is_editor_hint():
+		return
+		
+	area_2d.body_entered.connect(_on_body_entered)
+
+
+func _on_body_entered(b) -> void:
+	if b.is_in_group("Player"):
+		if item_data:
+			if Global.INVENTORY_DATA.add_item(item_data) == true:
+				pickup_item()
+		
+	pass
 
 
 
+func pickup_item() -> void:
+	area_2d.body_entered.disconnect(_on_body_entered)
+	queue_free()
+	
 
-#func _process(_delta: float) -> void:
-	#if Engine.is_editor_hint():
-		#icon_sprite.texture = item_texture
-	#
-	#if player_detected and Input.is_action_just_pressed("ui_add"):
-		#pickup_item()
-#
-#
-#func pickup_item():
-	#var item = {
-		#"quantity" : 1,
-		#"type" : item_type,
-		#"name" : item_name,
-		#"effect" : item_effect,
-		#"bonus" : effect_bonus,
-		#"texture" : item_texture,
-		#"scene_path" : scene_path
-	#}
-	#if Global.player_node:
-		#Global.add_item(item, false)
-		#self.queue_free()
-		#
-#
-#
-#func _on_area_2d_body_entered(body):
-	#if body.is_in_group("Player"):
-		#print("Entered")
-		#player_detected = true
-		#body.ui_interact.visible = true
-	#
-#func _on_area_2d_body_exited(body):
-	#if body.is_in_group("Player"):
-		#player_detected = false
-		#body.ui_interact.visible = false
-	#
-#
-#func set_item_data(data):
-	#item_type = data["type"]
-	#item_name = data["name"]
-	#item_effect = data["effect"]
-	#effect_bonus = data["bonus"]
-	#item_texture = data["texture"]
-#
-#func initiate_items(type, name, effect, bonus, texture):
-	#item_type = type
-	#item_name = name
-	#item_effect = effect
-	#effect_bonus = bonus
-	#item_texture = texture
+
+func _set_item_data(value : ItemData) -> void:
+	item_data = value
+	_update_texture()
+
+##func set_item_data(data):
+	##item_type = data["type"]
+	##item_name = data["name"]
+	##item_effect = data["effect"]
+	##effect_bonus = data["bonus"]
+	##item_texture = data["texture"]
+
+
+
+func _update_texture() -> void:
+	if item_data and sprite_2d:
+		sprite_2d.texture = item_data.texture
+	pass

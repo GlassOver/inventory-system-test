@@ -23,50 +23,6 @@ size = Vector2(10, 20)
 process_mode = 3
 script = ExtResource("1_kyqiw")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5.9604645e-08, -5.9604645e-07)
-scale = Vector2(0.375, 0.34375003)
-sprite_frames = SubResource("SpriteFrames_dewec")
-animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_5ixxa")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-
-[node name="InteractUI" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="InteractUI"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -300.0
-offset_top = -40.0
-offset_bottom = 10.0
-grow_horizontal = 0
-grow_vertical = 0
-color = Color(0.32941177, 0.8392157, 0.46666667, 0.19607843)
-
-[node name="Label" type="Label" parent="InteractUI/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.5
-offset_top = -11.5
-offset_right = 75.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 26
-text = "Press \"Z\" to Pick Up"
-
 [node name="InventoryUI" type="CanvasLayer" parent="."]
 visible = false
 
@@ -94,6 +50,52 @@ text = "INVENTORY"
 [node name="InventoryUI" parent="InventoryUI/ColorRect" instance=ExtResource("3_gntrk")]
 layout_mode = 0
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.9604645e-08, -5.9604645e-07)
+scale = Vector2(0.375, 0.34375003)
+sprite_frames = SubResource("SpriteFrames_dewec")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5ixxa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="InteractUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="InteractUI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -40.0
+offset_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.32941177, 0.8392157, 0.46666667, 0.19607843)
+
+[node name="Label" type="Label" parent="InteractUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -11.5
+offset_right = 75.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Press \"Z\" to Pick Up"
+
 [node name="InventoryHotbar" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Inventory_Hotbar" parent="InventoryHotbar" instance=ExtResource("4_dewec")]

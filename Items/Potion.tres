@@ -1,7 +1,14 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://clvqre743gjt8"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://clvqre743gjt8"]
 
 [ext_resource type="Script" uid="uid://bkcin25c5i56i" path="res://Script/Item_Data_Resource.gd" id="1_58i72"]
+[ext_resource type="Script" uid="uid://1k7x1osimy85" path="res://Script/item_effect.gd" id="1_nhhcn"]
+[ext_resource type="Script" uid="uid://dsvxdldga41u0" path="res://Items/Item Effects/item_effect_heal.gd" id="2_b673u"]
 [ext_resource type="Texture2D" uid="uid://dpqhecjeoa82y" path="res://Assets/Player.png" id="2_svfea"]
+
+[sub_resource type="Resource" id="Resource_8lfp5"]
+script = ExtResource("2_b673u")
+heal_amount = 500
+metadata/_custom_type_script = "uid://dsvxdldga41u0"
 
 [resource]
 script = ExtResource("1_58i72")
@@ -9,4 +16,5 @@ name = "Potion"
 description = "Potion Description"
 texture = ExtResource("2_svfea")
 quality = "Poor"
+effects = Array[ExtResource("1_nhhcn")]([SubResource("Resource_8lfp5")])
 metadata/_custom_type_script = "uid://bkcin25c5i56i"

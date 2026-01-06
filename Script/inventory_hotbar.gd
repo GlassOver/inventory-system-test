@@ -1,5 +1,6 @@
 extends Control
 
+@export var data : InventoryData
 #@onready var hotbar_container: HBoxContainer = $HBoxContainer
 #
 #

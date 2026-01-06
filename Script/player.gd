@@ -1,4 +1,6 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
+
+
 
 #region /// Onready Variables
 @onready var inventory_ui: CanvasLayer = $InventoryUI
@@ -9,6 +11,8 @@ extends CharacterBody2D
 
 #region /// Variables
 var pSpeed = 200 
+signal menu_shown
+signal menu_hidden
 #endregion
 
 func _ready() -> void:
@@ -28,23 +32,14 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_inventory"):
 		inventory_ui.visible = !inventory_ui.visible
 		get_tree().paused = !get_tree().paused
+		if inventory_ui.visible == true:
+			menu_shown.emit()
+		elif inventory_ui.visible == false:
+			menu_hidden.emit()
+		
 		#inventory_hotbar.visible = !inventory_hotbar.visible
 		
 		
-#func apply_item_effect(item):
-	#match item["effect"]:
-		#"Stamina": 
-			#pSpeed += int(item["bonus"])
-			#print("Speed increased to", pSpeed)
-	#
-		#"Slot Boost": 
-			#Global.increase_inventory_size(int(item["bonus"]))
-			#print("Slots increased to", Global.inventory.size())
-
-
-		#_:
-			#print("No effect")
-
 
 #func use_hotbar_item(slot_index):
 	#if slot_index < Global.hotbar_inventory.size():

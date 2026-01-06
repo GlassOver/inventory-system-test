@@ -5,9 +5,14 @@ const INVENTORY_SLOT = preload("uid://dpdkxjw467dip")
 @onready var grid_container: GridContainer = $GridContainer
 @export var data : InventoryData
 
+
+
 func _ready():
-	Global.inventory_updated.connect(_on_inventory_updated)
-	_on_inventory_updated()
+	await get_tree().create_timer(0.2).timeout
+	Global.player_node.menu_shown.connect(_on_inventory_updated)
+	Global.player_node.menu_hidden.connect(clear_grid_container)
+	data.changed.connect(on_inventory_changed)
+	pass
 
 
 func _on_inventory_updated():
@@ -15,20 +20,18 @@ func _on_inventory_updated():
 		var new_slot = INVENTORY_SLOT.instantiate()
 		grid_container.add_child(new_slot)
 		new_slot.slot_data = s
-	get_child(0).grab_focus()
 	
-	##clear_grid_container()
-	##for item in Global.inventory:
-		##var slot = Global.inventory_slot_scene.instantiate()
-		##grid_container.add_child(slot)
-		##if item != null:
-			##slot.set_item(item)
-		##else:
-			##slot.set_empty()
-
-
+	
+	
 func clear_grid_container():
 	while grid_container.get_child_count() > 0:
 		var child = grid_container.get_child(0)
 		grid_container.remove_child(child)
-		child.queue_free()
+		child.queue_free()	
+	
+	
+	
+func on_inventory_changed() -> void:
+	print("check check")
+	clear_grid_container()
+	_on_inventory_updated()
