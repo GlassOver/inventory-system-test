@@ -96,6 +96,6 @@ theme_override_font_sizes/font_size = 26
 text = "Press \"Z\" to Pick Up"
 
 [node name="InventoryHotbar" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Inventory_Hotbar" parent="InventoryHotbar" instance=ExtResource("4_dewec")]
+mouse_filter = 2

@@ -31,15 +31,17 @@ func _physics_process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_inventory"):
 		inventory_ui.visible = !inventory_ui.visible
+		
 		get_tree().paused = !get_tree().paused
 		if inventory_ui.visible == true:
 			menu_shown.emit()
 		elif inventory_ui.visible == false:
 			menu_hidden.emit()
+			
+		inventory_hotbar.visible = !inventory_hotbar.visible
 		
-		#inventory_hotbar.visible = !inventory_hotbar.visible
 		
-		
+#region		### Unnecessary at the moment
 
 #func use_hotbar_item(slot_index):
 	#if slot_index < Global.hotbar_inventory.size():
@@ -62,3 +64,4 @@ func _input(event: InputEvent) -> void:
 				#break
 
 #Comment Comment Comment
+#endregion

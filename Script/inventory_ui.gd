@@ -15,14 +15,15 @@ func _ready():
 	pass
 
 
+
 func _on_inventory_updated():
 	for s in data.slots:
 		var new_slot = INVENTORY_SLOT.instantiate()
 		grid_container.add_child(new_slot)
 		new_slot.slot_data = s
-	
-	
-	
+
+
+
 func clear_grid_container():
 	while grid_container.get_child_count() > 0:
 		var child = grid_container.get_child(0)
@@ -32,6 +33,5 @@ func clear_grid_container():
 	
 	
 func on_inventory_changed() -> void:
-	print("check check")
 	clear_grid_container()
 	_on_inventory_updated()

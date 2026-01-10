@@ -12,7 +12,6 @@ class_name InventorySlotUI extends Control
 @onready var item_desc: Label = $CanvasLayer2/ItemDesc
 @onready var use_button: Button = $UsagePanel/UseButton
 
-
 var slot_data : SlotData : set = set_item
 
 #Slot item
@@ -29,6 +28,8 @@ func _ready() -> void:
 	item_button.focus_entered.connect(item_focused)
 	item_button.focus_exited.connect(item_unfocused)
 	item_button.pressed.connect(toggle_usage_panel)
+	assign_button.pressed.connect(assign_to_hotbar)
+	
 	
 
 
@@ -41,12 +42,6 @@ func set_item(value : SlotData):
 	
 	item_name.text = str(slot_data.item_data.name)
 	item_type.text = str(slot_data.item_data.quality)
-	
-	#if item["effect"] != "":
-		#item_effect.text = str("+ ", item["effect"])
-	#else:
-		#item_effect.text = ""
-	#update_assignment_status()
 	
 	
 	
@@ -95,15 +90,13 @@ func _on_use_button_pressed() -> void:
 			#print("Player could not be found.")
 
 
-
-#func update_assignment_status():
-	#is_assigned = Global.is_item_assigned_to_hotbar(item)
-	#if is_assigned: 
-		#assign_button.text = "Unassign"
-	#else:
-		#assign_button.text = "Assign"
-
-
+func assign_to_hotbar() -> void:
+	if slot_data:
+		if slot_data.item_data:
+			var _item = slot_data.item_data
+			var count = int(slot_data.quantity)
+			Global.INVENTORY_DATA.add_hotbar_item(_item, count)
+	pass
 
 #func _on_assign_button_pressed() -> void:
 	#if item != null:
@@ -114,3 +107,10 @@ func _on_use_button_pressed() -> void:
 			#Global.add_item(item, true)
 			#is_assigned = true
 		#update_assignment_status()
+
+#func update_assignment_status():
+	#is_assigned = Global.is_item_assigned_to_hotbar(item)
+	#if is_assigned: 
+		#assign_button.text = "Unassign"
+	#else:
+		#assign_button.text = "Assign"

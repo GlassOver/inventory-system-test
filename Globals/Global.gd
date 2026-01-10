@@ -2,6 +2,7 @@ extends Node
 
 @onready var inventory_slot_scene = preload("res://Scenes/inventory_slot.tscn")
 const INVENTORY_DATA : InventoryData = preload("res://Inventory Resources/player_inventory.tres")
+const HOTBAR_INVENTORY : InventoryData = preload("uid://bvlgk6k7cl46g")
 signal update_inventory
 signal clear_inventory
 var inventory_timer = 3
