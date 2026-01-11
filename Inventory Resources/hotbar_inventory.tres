@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="InventoryData" load_steps=3 format=3 uid="uid://bvlgk6k7cl46g"]
+[gd_resource type="Resource" script_class="HotbarData" load_steps=3 format=3 uid="uid://bvlgk6k7cl46g"]
 
-[ext_resource type="Script" uid="uid://bw0mqruxshyr1" path="res://Script/inventory_data.gd" id="1_4amf5"]
+[ext_resource type="Script" uid="uid://c26nblqh8c85f" path="res://Script/hotbar_data.gd" id="1_st5wp"]
 [ext_resource type="Script" uid="uid://wr5w4iupxdms" path="res://Script/slot_data.gd" id="2_ge2js"]
 
 [resource]
-script = ExtResource("1_4amf5")
+script = ExtResource("1_st5wp")
 slots = Array[ExtResource("2_ge2js")]([null, null, null, null, null])
-metadata/_custom_type_script = "uid://bw0mqruxshyr1"
+metadata/_custom_type_script = "uid://c26nblqh8c85f"

@@ -37,13 +37,6 @@ func _set_item_data(value : ItemData) -> void:
 	item_data = value
 	_update_texture()
 
-##func set_item_data(data):
-	##item_type = data["type"]
-	##item_name = data["name"]
-	##item_effect = data["effect"]
-	##effect_bonus = data["bonus"]
-	##item_texture = data["texture"]
-
 
 
 func _update_texture() -> void:

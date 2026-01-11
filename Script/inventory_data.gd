@@ -1,7 +1,7 @@
 class_name InventoryData extends Resource
 
 @export var slots : Array[SlotData]
-
+var is_assigned = false
 
 
 
@@ -11,9 +11,13 @@ func _init() -> void:
 
 
 func add_item(item : ItemData, count : int = 1) -> bool:
+	is_assigned = Global.HOTBAR_INVENTORY.is_item_assigned_to_hotbar(item)
+						###This part should check if the item has the is_assigned variable checked to true
 	for s in slots:
 		if s != null:
 			if s.item_data == item:
+				if is_assigned:
+					Global.HOTBAR_INVENTORY.add_item(item)
 				s.quantity += count
 				return true
 				
@@ -65,58 +69,3 @@ func slot_changed() -> void:
 				slots[index] = null
 				emit_changed()
 	pass
-
-#func remove_item(item_type, item_effect):
-	#for i in range(inventory.size()):
-		#if inventory[i] != null and inventory[i]["type"] == item_type and inventory[i]["effect"] == item_effect:
-			#inventory[i]["quantity"] -= 1
-			#if inventory[i]["quantity"] <= 0:
-				#inventory[i] = null
-			#inventory_updated.emit()
-			#return true
-	#return false
-
-
-#func add_hotbar_item(item: ItemData, count: int = 1):
-	#for s in range(Global.HOTBAR_INVENTORY):
-		#for i in slots.size():
-			#if slots[i] == null:
-				#var new = SlotData.new()
-				#new.item_data = item
-				#new.quantity = count
-				#slots[i] = new
-				#new.changed.connect(slot_changed)
-				#return true
-
-#func add_hotbar_item(item):
-	#for i in range(hotbar_size):
-		#if hotbar_inventory[i] == null:
-			#hotbar_inventory[i] = item
-			#return true
-	#return false
-
-
-
-#func remove_hotbar_item(item_type, item_effect):
-	#for i in range(hotbar_inventory.size()):
-		#if hotbar_inventory[i] != null and hotbar_inventory[i]["type"] == item_type and hotbar_inventory[i]["effect"] == item_effect:
-			#if hotbar_inventory[i]["quantity"] <= 0:
-				#hotbar_inventory[i] = null
-			#inventory_updated.emit()
-			#return true
-	#return false
-	
-	
-	
-#func unassign_hotbar_item(item_type, item_effect):
-	#for i in range(hotbar_inventory.size()):
-		#if hotbar_inventory[i] != null and hotbar_inventory[i]["type"] == item_type and hotbar_inventory[i]["effect"] == item_effect:
-			#hotbar_inventory[i] = null
-			#inventory_updated.emit()
-			#return true
-	#return false	
-
-
-
-#func is_item_assigned_to_hotbar(item_to_check):
-	#return item_to_check in hotbar_inventory

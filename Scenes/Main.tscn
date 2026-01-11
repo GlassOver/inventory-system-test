@@ -15,6 +15,14 @@ script = ExtResource("1_r150o")
 position = Vector2(-105, -35)
 item_data = ExtResource("4_rgh2o")
 
+[node name="InventoryItem3" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(-67, -72)
+item_data = ExtResource("4_rgh2o")
+
+[node name="InventoryItem4" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(-57, -30)
+item_data = ExtResource("4_rgh2o")
+
 [node name="InventoryItem2" parent="." instance=ExtResource("3_kln2b")]
 position = Vector2(95, -65)
 item_data = ExtResource("5_pbw6q")
