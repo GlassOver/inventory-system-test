@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1o1sphalmo8e"]
+
+[ext_resource type="Texture2D" uid="uid://dpqhecjeoa82y" path="res://Assets/Player.png" id="1_6a21d"]
+[ext_resource type="Script" uid="uid://c5gdtok2j807u" path="res://01_JJBAM WORLD TEST/World Scripts/character_selection.gd" id="1_idknv"]
+[ext_resource type="PackedScene" uid="uid://c2o8k0acutpwr" path="res://01_JJBAM WORLD TEST/Scenes/selection_box.tscn" id="2_imac4"]
+[ext_resource type="Resource" uid="uid://dlvnkcbxeqmiq" path="res://01_JJBAM WORLD TEST/Character Resources/San.tres" id="3_6es8m"]
+[ext_resource type="Resource" uid="uid://js7bf4xp1hfc" path="res://01_JJBAM WORLD TEST/Character Resources/Nayu.tres" id="4_idknv"]
+[ext_resource type="Resource" uid="uid://6qmx4yidl0wo" path="res://01_JJBAM WORLD TEST/Character Resources/Tanya.tres" id="5_gaxut"]
+[ext_resource type="Resource" uid="uid://b3531xr2lmdw2" path="res://01_JJBAM WORLD TEST/Character Resources/Manyonchik.tres" id="6_1pler"]
+
+[node name="CharacterSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_idknv")
+
+[node name="P1Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 58.0
+offset_top = 515.0
+offset_right = 135.0
+offset_bottom = 538.0
+text = "Character"
+
+[node name="P2Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 637.0
+offset_top = 528.0
+offset_right = 714.0
+offset_bottom = 551.0
+text = "Character"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 159
+
+[node name="P1Selection" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture = ExtResource("1_6a21d")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 44
+theme_override_constants/v_separation = 44
+columns = 2
+
+[node name="SelectionBox" parent="HBoxContainer/GridContainer" instance=ExtResource("2_imac4")]
+layout_mode = 2
+character = ExtResource("3_6es8m")
+
+[node name="SelectionBox5" parent="HBoxContainer/GridContainer" instance=ExtResource("2_imac4")]
+layout_mode = 2
+character = ExtResource("6_1pler")
+
+[node name="SelectionBox6" parent="HBoxContainer/GridContainer" instance=ExtResource("2_imac4")]
+layout_mode = 2
+character = ExtResource("4_idknv")
+
+[node name="SelectionBox7" parent="HBoxContainer/GridContainer" instance=ExtResource("2_imac4")]
+layout_mode = 2
+character = ExtResource("5_gaxut")
+
+[node name="P2Selection" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture = ExtResource("1_6a21d")
+expand_mode = 1
+stretch_mode = 5

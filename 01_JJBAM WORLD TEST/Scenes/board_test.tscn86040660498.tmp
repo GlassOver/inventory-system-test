@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://c01p7fru3cmrg"]
+
+[ext_resource type="Script" uid="uid://b02chsoo85jr5" path="res://01_JJBAM WORLD TEST/World Scripts/board_test.gd" id="1_gg12t"]
+[ext_resource type="Resource" uid="uid://cpaybxuqnyc34" path="res://01_JJBAM WORLD TEST/Spots/REWARD.tres" id="2_nck37"]
+[ext_resource type="Script" uid="uid://cvdecwkhh4ugu" path="res://01_JJBAM WORLD TEST/Spot Resources/SpotData.gd" id="2_xnjv7"]
+[ext_resource type="Resource" uid="uid://8daoowci24d3" path="res://01_JJBAM WORLD TEST/Spots/PUNISH.tres" id="4_fcy2m"]
+[ext_resource type="Texture2D" uid="uid://dpqhecjeoa82y" path="res://Assets/Player.png" id="4_lt35v"]
+[ext_resource type="PackedScene" uid="uid://bnwt0yn5th7vk" path="res://Scenes/Player.tscn" id="6_l0huc"]
+[ext_resource type="Resource" uid="uid://cj2cy0inixg6b" path="res://01_JJBAM WORLD TEST/PlayerScripts/player_1_controls.tres" id="7_ka2f1"]
+[ext_resource type="Resource" uid="uid://bot0e5xnqbm2q" path="res://01_JJBAM WORLD TEST/PlayerScripts/player_2_controls.tres" id="8_cuplh"]
+
+[node name="BoardTest" type="Node2D"]
+script = ExtResource("1_gg12t")
+ContainedSpots = Array[ExtResource("2_xnjv7")]([ExtResource("2_nck37"), ExtResource("4_fcy2m"), ExtResource("2_nck37"), ExtResource("2_nck37"), ExtResource("2_nck37"), ExtResource("4_fcy2m"), ExtResource("4_fcy2m"), ExtResource("2_nck37"), ExtResource("2_nck37"), ExtResource("4_fcy2m"), ExtResource("2_nck37"), ExtResource("4_fcy2m")])
+
+[node name="Spots" type="Node" parent="."]
+
+[node name="Spot 1" type="Node2D" parent="Spots"]
+position = Vector2(30, 34)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spots/Spot 1"]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.2, 0.1078125)
+texture = ExtResource("4_lt35v")
+
+[node name="Spot 2" type="Node2D" parent="Spots"]
+position = Vector2(37, 19)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spots/Spot 2"]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.2, 0.1078125)
+texture = ExtResource("4_lt35v")
+
+[node name="Spot 3" type="Node2D" parent="Spots"]
+position = Vector2(52, 7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spots/Spot 3"]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.2, 0.1078125)
+texture = ExtResource("4_lt35v")
+
+[node name="Spot 4" type="Node2D" parent="Spots"]
+position = Vector2(74, 6)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spots/Spot 4"]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.2, 0.1078125)
+texture = ExtResource("4_lt35v")
+
+[node name="Spot 5" type="Node2D" parent="Spots"]
+position = Vector2(97, 13)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spots/Spot 5"]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.2, 0.1078125)
+texture = ExtResource("4_lt35v")
+
+[node name="Spot 6" type="Node2D" parent="Spots"]
+position = Vector2(123, 15)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spots/Spot 6"]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.2, 0.1078125)
+texture = ExtResource("4_lt35v")
+
+[node name="Spot 7" type="Node2D" parent="Spots"]
+position = Vector2(153, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spots/Spot 7"]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.2, 0.1078125)
+texture = ExtResource("4_lt35v")
+
+[node name="Spot 8" type="Node2D" parent="Spots"]
+position = Vector2(163, -19)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spots/Spot 8"]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.2, 0.1078125)
+texture = ExtResource("4_lt35v")
+
+[node name="Spot 9" type="Node2D" parent="Spots"]
+position = Vector2(144, -56)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spots/Spot 9"]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.2, 0.1078125)
+texture = ExtResource("4_lt35v")
+
+[node name="Spot 10" type="Node2D" parent="Spots"]
+position = Vector2(116, -85)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spots/Spot 10"]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.2, 0.1078125)
+texture = ExtResource("4_lt35v")
+
+[node name="Spot 11" type="Node2D" parent="Spots"]
+position = Vector2(95, -112)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spots/Spot 11"]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.2, 0.1078125)
+texture = ExtResource("4_lt35v")
+
+[node name="Spot 12" type="Node2D" parent="Spots"]
+position = Vector2(108, -150)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spots/Spot 12"]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.2, 0.1078125)
+texture = ExtResource("4_lt35v")
+
+[node name="Player" parent="." instance=ExtResource("6_l0huc")]
+position = Vector2(66, 50)
+controls = ExtResource("7_ka2f1")
+
+[node name="Player2" parent="." instance=ExtResource("6_l0huc")]
+controls = ExtResource("8_cuplh")

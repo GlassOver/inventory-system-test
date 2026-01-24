@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="EquipableItemData" load_steps=8 format=3 uid="uid://o0lkmkgku6ds"]
+
+[ext_resource type="Script" uid="uid://1k7x1osimy85" path="res://Script/item_effect.gd" id="1_aobgj"]
+[ext_resource type="Script" uid="uid://bqoqbygrltxso" path="res://Equipment/EquipableItemAffinities.gd" id="1_nqt2w"]
+[ext_resource type="Script" uid="uid://btrr2kx47mnqi" path="res://Equipment/EquipableItemModifier.gd" id="2_yl04n"]
+[ext_resource type="Script" uid="uid://cfec7jafxgf2t" path="res://Equipment/EquipableItemData.gd" id="3_nqt2w"]
+
+[sub_resource type="Resource" id="Resource_55eoa"]
+script = ExtResource("1_nqt2w")
+affinity = 0
+value = 20
+metadata/_custom_type_script = "uid://bqoqbygrltxso"
+
+[sub_resource type="Resource" id="Resource_nqt2w"]
+script = ExtResource("1_nqt2w")
+value = 30
+metadata/_custom_type_script = "uid://bqoqbygrltxso"
+
+[sub_resource type="Resource" id="Resource_yl04n"]
+script = ExtResource("2_yl04n")
+type = 2
+value = 50
+metadata/_custom_type_script = "uid://btrr2kx47mnqi"
+
+[resource]
+script = ExtResource("3_nqt2w")
+modifiers = Array[ExtResource("2_yl04n")]([SubResource("Resource_yl04n")])
+affinities = Array[Resource]([SubResource("Resource_55eoa"), SubResource("Resource_nqt2w")])
+name = "Fire Sword"
+description = "Fart"
+quality = "Poopy"
+metadata/_custom_type_script = "uid://cfec7jafxgf2t"

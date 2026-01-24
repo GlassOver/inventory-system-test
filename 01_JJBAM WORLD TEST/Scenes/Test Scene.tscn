@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://denfv0inr5o5i"]
+
+[ext_resource type="Script" uid="uid://r78ot04x3srx" path="res://01_JJBAM WORLD TEST/Scenes/test_scene.gd" id="1_hj0r5"]
+[ext_resource type="PackedScene" uid="uid://bnwt0yn5th7vk" path="res://Scenes/Player.tscn" id="1_xnscc"]
+[ext_resource type="Resource" uid="uid://cj2cy0inixg6b" path="res://01_JJBAM WORLD TEST/PlayerScripts/player_1_controls.tres" id="2_7g4ic"]
+[ext_resource type="Resource" uid="uid://bot0e5xnqbm2q" path="res://01_JJBAM WORLD TEST/PlayerScripts/player_2_controls.tres" id="3_7g4ic"]
+
+[node name="TestScene" type="Node2D"]
+script = ExtResource("1_hj0r5")
+
+[node name="Player" parent="." instance=ExtResource("1_xnscc")]
+position = Vector2(444, 354)
+controls = ExtResource("2_7g4ic")
+
+[node name="Player2" parent="." instance=ExtResource("1_xnscc")]
+position = Vector2(339, 348)
+controls = ExtResource("3_7g4ic")

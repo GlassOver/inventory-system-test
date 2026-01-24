@@ -1,15 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://f8bnm31xyw4t"]
+[gd_scene load_steps=17 format=3 uid="uid://f8bnm31xyw4t"]
 
 [ext_resource type="Script" uid="uid://dbks2wyfeu780" path="res://Script/main.gd" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://bnwt0yn5th7vk" path="res://Scenes/Player.tscn" id="2_idj7w"]
+[ext_resource type="Resource" uid="uid://cj2cy0inixg6b" path="res://01_JJBAM WORLD TEST/PlayerScripts/player_1_controls.tres" id="3_4kpch"]
 [ext_resource type="PackedScene" uid="uid://cnbblyn3flyuf" path="res://Scenes/InventoryItem.tscn" id="3_kln2b"]
+[ext_resource type="Resource" uid="uid://bot0e5xnqbm2q" path="res://01_JJBAM WORLD TEST/PlayerScripts/player_2_controls.tres" id="4_grg3l"]
 [ext_resource type="Resource" uid="uid://clvqre743gjt8" path="res://Items/Potion.tres" id="4_rgh2o"]
 [ext_resource type="Resource" uid="uid://drlvudcv8w806" path="res://Items/Pouch.tres" id="5_pbw6q"]
+[ext_resource type="Resource" uid="uid://b6qj6v1msykf" path="res://Equipment Items/LifeSword.tres" id="5_vy5pj"]
+[ext_resource type="Script" uid="uid://dvygug0bn847e" path="res://Hit-Hurtbox Scripts/hurtbox.gd" id="6_v1gob"]
+[ext_resource type="Texture2D" uid="uid://dpqhecjeoa82y" path="res://Assets/Player.png" id="7_jw32o"]
+[ext_resource type="Script" uid="uid://bb1ujs864ymsp" path="res://Script/dummy.gd" id="7_vy5pj"]
+[ext_resource type="Script" uid="uid://cg4oqj61ufl8y" path="res://Hit-Hurtbox Scripts/hitbox.gd" id="9_bmxlf"]
+[ext_resource type="PackedScene" uid="uid://cusfvtvtbtpxx" path="res://01_JJBAM WORLD TEST/Scenes/star_pickup_test.tscn" id="13_frkhe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmxlf"]
+size = Vector2(12, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50glp"]
+size = Vector2(32, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kpch"]
+size = Vector2(32, 64)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_r150o")
 
 [node name="Player" parent="." instance=ExtResource("2_idj7w")]
+controls = ExtResource("3_4kpch")
+
+[node name="Player2" parent="." instance=ExtResource("2_idj7w")]
+position = Vector2(-38, 28)
+controls = ExtResource("4_grg3l")
 
 [node name="InventoryItem" parent="." instance=ExtResource("3_kln2b")]
 position = Vector2(-105, -35)
@@ -20,9 +42,49 @@ position = Vector2(-67, -72)
 item_data = ExtResource("4_rgh2o")
 
 [node name="InventoryItem4" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-57, -30)
-item_data = ExtResource("4_rgh2o")
+position = Vector2(-58, -31)
+item_data = ExtResource("5_vy5pj")
+
+[node name="Hurtbox" type="Area2D" parent="InventoryItem4"]
+position = Vector2(78, -13)
+script = ExtResource("6_v1gob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryItem4/Hurtbox"]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_bmxlf")
+debug_color = Color(0.9186305, 0.26004836, 0.30564862, 0.41960785)
 
 [node name="InventoryItem2" parent="." instance=ExtResource("3_kln2b")]
 position = Vector2(95, -65)
 item_data = ExtResource("5_pbw6q")
+
+[node name="Dummy" type="CharacterBody2D" parent="."]
+script = ExtResource("7_vy5pj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dummy"]
+modulate = Color(1, 0.5294118, 0.61960787, 1)
+position = Vector2(91, 3)
+texture = ExtResource("7_jw32o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dummy"]
+position = Vector2(91, 3)
+shape = SubResource("RectangleShape2D_50glp")
+
+[node name="Hitbox" type="Area2D" parent="Dummy"]
+position = Vector2(90, 0)
+script = ExtResource("9_bmxlf")
+resistances = {
+"DEATHPOT": -2.0,
+"FIREPOT": 1.5,
+"ICEPOT": 0.0,
+"LIFEPOT": 2.0,
+"NIGHTPOT": -1.0,
+"SUNPOT": 1.5
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dummy/Hitbox"]
+position = Vector2(1, 3)
+shape = SubResource("RectangleShape2D_4kpch")
+
+[node name="StarPickupTest" parent="." instance=ExtResource("13_frkhe")]
+position = Vector2(-102, 31)

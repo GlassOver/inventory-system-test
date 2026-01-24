@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RosterCharacter" load_steps=3 format=3 uid="uid://b3531xr2lmdw2"]
+
+[ext_resource type="Script" uid="uid://b6fckgd3o4qk7" path="res://01_JJBAM WORLD TEST/Character Resources/character_resource.gd" id="1_rw58m"]
+[ext_resource type="Texture2D" uid="uid://djl66obu0mwit" path="res://Assets/jackass.png" id="2_rw58m"]
+
+[resource]
+script = ExtResource("1_rw58m")
+name = "Jackass"
+texture = ExtResource("2_rw58m")
+character_id = "many"
+metadata/_custom_type_script = "uid://b6fckgd3o4qk7"

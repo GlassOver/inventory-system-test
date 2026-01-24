@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RosterCharacter" load_steps=3 format=3 uid="uid://dlvnkcbxeqmiq"]
+
+[ext_resource type="Script" uid="uid://b6fckgd3o4qk7" path="res://01_JJBAM WORLD TEST/Character Resources/character_resource.gd" id="1_qdup3"]
+[ext_resource type="Texture2D" uid="uid://b3gd1krjq4cyi" path="res://Assets/san_character.png" id="2_qdup3"]
+
+[resource]
+script = ExtResource("1_qdup3")
+name = "San"
+texture = ExtResource("2_qdup3")
+character_id = "rando"
+metadata/_custom_type_script = "uid://b6fckgd3o4qk7"

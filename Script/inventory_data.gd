@@ -1,6 +1,7 @@
 class_name InventoryData extends Resource
 
 @export var slots : Array[SlotData]
+var affinities = {}
 var is_assigned = false
 
 
@@ -69,3 +70,48 @@ func slot_changed() -> void:
 				slots[index] = null
 				emit_changed()
 	pass
+
+
+
+func get_weapon_affinity():
+	var affinity := ""
+	var affinity_damage = 0
+	
+	for s in slots:
+		if s == null:
+			continue
+			
+		var e : EquipableItemData = s.item_data
+		for a in e.affinities:
+			if a.affinity != null:
+				affinity = EquipableItemAffinities.Affinity.keys()[a.affinity]
+				affinity_damage = a.value
+				affinities[affinity] = affinity_damage
+	
+# 
+
+
+func get_attack_bonus() -> int:
+	
+	return get_equipment_bonus(EquipableItemModifier.Type.ATTACK) #return bonus
+
+
+
+func get_defense_bonus() -> int:
+	
+	return get_equipment_bonus(EquipableItemModifier.Type.DEFENSE)
+	
+	
+func get_equipment_bonus(bonus_type : EquipableItemModifier.Type) -> int:
+	var bonus : int = 0
+	
+	for s in slots:
+		if s == null:
+			continue
+		var e : EquipableItemData = s.item_data
+		for m in e.modifiers:
+			if m.type == bonus_type:
+				bonus += m.value
+	
+	return bonus
+	

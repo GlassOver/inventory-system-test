@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cusfvtvtbtpxx"]
+
+[ext_resource type="Script" uid="uid://clnd1nhk62tu0" path="res://01_JJBAM WORLD TEST/World Scripts/star_pickup_test.gd" id="1_ad8lr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7gvvf"]
+
+[node name="StarPickupTest" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_ad8lr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7gvvf")
+debug_color = Color(0.92975265, 0.90515476, 0.32043666, 1)

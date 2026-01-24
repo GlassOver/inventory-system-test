@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RosterCharacter" load_steps=3 format=3 uid="uid://js7bf4xp1hfc"]
+
+[ext_resource type="Script" uid="uid://b6fckgd3o4qk7" path="res://01_JJBAM WORLD TEST/Character Resources/character_resource.gd" id="1_sdxwp"]
+[ext_resource type="Texture2D" uid="uid://cnrc8au2ts6wt" path="res://Assets/Nayu_character.png" id="2_sdxwp"]
+
+[resource]
+script = ExtResource("1_sdxwp")
+name = "Nayu Taro"
+texture = ExtResource("2_sdxwp")
+character_id = "nayu"
+metadata/_custom_type_script = "uid://b6fckgd3o4qk7"

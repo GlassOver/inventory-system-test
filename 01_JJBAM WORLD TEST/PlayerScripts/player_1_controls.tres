@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PlayerControls" load_steps=2 format=3 uid="uid://cj2cy0inixg6b"]
+
+[ext_resource type="Script" uid="uid://n6r362votvxt" path="res://01_JJBAM WORLD TEST/PlayerScripts/PlayerControls.gd" id="1_8nnh4"]
+
+[resource]
+script = ExtResource("1_8nnh4")
+player_index = 1
+metadata/_custom_type_script = "uid://n6r362votvxt"

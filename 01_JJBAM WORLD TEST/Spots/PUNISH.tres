@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="SpotData" load_steps=7 format=3 uid="uid://8daoowci24d3"]
+
+[ext_resource type="Script" uid="uid://b5dw3lpg8cs0h" path="res://01_JJBAM WORLD TEST/Spot Resources/SpotPUNISH.gd" id="1_j72i4"]
+[ext_resource type="Script" uid="uid://dkiun56djo7eu" path="res://01_JJBAM WORLD TEST/Spot Resources/SpotTypeData.gd" id="3_fom5i"]
+[ext_resource type="Script" uid="uid://cvdecwkhh4ugu" path="res://01_JJBAM WORLD TEST/Spot Resources/SpotData.gd" id="3_i2rx2"]
+
+[sub_resource type="Resource" id="Resource_i2rx2"]
+script = ExtResource("1_j72i4")
+coins_take = 5
+stars_take = 0
+metadata/_custom_type_script = "uid://b5dw3lpg8cs0h"
+
+[sub_resource type="Gradient" id="Gradient_xa1jt"]
+offsets = PackedFloat32Array(0.97938144, 1)
+colors = PackedColorArray(0.7458214, 0.17406899, 0.34485024, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ru2w7"]
+gradient = SubResource("Gradient_xa1jt")
+width = 12
+height = 12
+
+[resource]
+script = ExtResource("3_i2rx2")
+texture = SubResource("GradientTexture2D_ru2w7")
+effects = Array[ExtResource("3_fom5i")]([SubResource("Resource_i2rx2")])
+metadata/_custom_type_script = "uid://cvdecwkhh4ugu"

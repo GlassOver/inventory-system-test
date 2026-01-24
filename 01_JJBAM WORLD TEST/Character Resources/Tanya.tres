@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RosterCharacter" load_steps=3 format=3 uid="uid://6qmx4yidl0wo"]
+
+[ext_resource type="Script" uid="uid://b6fckgd3o4qk7" path="res://01_JJBAM WORLD TEST/Character Resources/character_resource.gd" id="1_ydlih"]
+[ext_resource type="Texture2D" uid="uid://632now2oh1g5" path="res://Assets/Tanya_character.png" id="2_ysyqd"]
+
+[resource]
+script = ExtResource("1_ydlih")
+name = "Tanya Oru"
+texture = ExtResource("2_ysyqd")
+character_id = "tanya"
+metadata/_custom_type_script = "uid://b6fckgd3o4qk7"
